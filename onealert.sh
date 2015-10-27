@@ -61,15 +61,6 @@ fi
 if [ $OS = "RedHat" ]; then
     echo -e "\033[34m\n* Installing YUM sources for OneAlert\n\033[0m"
 
-    UNAME_M=$(uname -m)
-    if [ "$UNAME_M"  == "i686" -o "$UNAME_M"  == "i386" -o "$UNAME_M"  == "x86" ]; then
-        #ARCHI="i386"
-		echo -e "Currently does not support 32-bit Linux."
-		exit 1
-    #else
-        #ARCHI="x86_64"
-    fi
-
     $sudo_cmd sh -c "echo -e '[onealert-agent]\nname=OneAlert, Inc.\nbaseurl=$YUM_URL/centos6/x86_64/\nenabled=1\ngpgcheck=0\npriority=1\n' > /etc/yum.repos.d/onealert-agent.repo"
 
     echo -e " $SYSTEM_TIME - \033[34m* Installing the OneAlert Agent package\n\033[0m\n"
