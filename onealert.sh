@@ -23,7 +23,6 @@ if [ $DISTRIBUTION = "Darwin" ]; then
     echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the Mac..${endColor}\n"
 	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the Mac..${endColor}\n" >> $logfile
     exit 1;
-	
 elif [ -f /etc/debian_version -o "$DISTRIBUTION" == "Debian" -o "$DISTRIBUTION" == "Ubuntu" ]; then
 	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the $DISTRIBUTION..${endColor}\n"
 	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the $DISTRIBUTION..${endColor}\n" >> $logfile
@@ -38,14 +37,14 @@ elif [ -f /etc/system-release -o "$DISTRIBUTION" == "Amazon" ]; then
 	exit 1;
 fi
 
-# detecting alert agent is already intalled. 
-nagiosAgentPath="/usr/local/nagios/libexec/alert-agent"
-if [ ! -e "$nagiosAgentPath"]; then  
-　　echo -e "${yellow} $SYSTEM_TIME - OneAlert agent maybe installed,Please uninstall first.\n You can run 'yum uninstall onealert-agent -y' to remove it.${endColor}"
-	echo -e "${yellow} $SYSTEM_TIME - OneAlert agent path already exist.Please uninstall it first.${endColor}" >> $logfile
-	exit 0
-fi
-  
+# detecting alert agent is already intalled.
+#nagiosAgentPath="/usr/local/nagios/libexec/alert-agent"
+#if [ ! -e "$nagiosAgentPath"]; then
+#　　echo -e "${yellow} $SYSTEM_TIME - OneAlert agent maybe installed,Please uninstall first.\n You can run 'yum uninstall onealert-agent -y' to remove it.${endColor}"
+#	echo -e "${yellow} $SYSTEM_TIME - OneAlert agent path already exist.Please uninstall it first.${endColor}" >> $logfile
+#	exit 0
+#fi
+
 # detect whether the current user is root.
 # Root user detection
 if [ $(echo "$UID") = "0" ]; then
