@@ -66,7 +66,7 @@ if [ $OS = "RedHat" ]; then
         #ARCHI="i386"
 		echo -e "Currently does not support 32-bit Linux."
 		exit 1
-    else
+    #else
         #ARCHI="x86_64"
     fi
 
