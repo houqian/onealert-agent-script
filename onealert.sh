@@ -78,4 +78,4 @@ if [ -e /usr/local/nagios/etc/objects/110monitor.cfg ]; then
     $sudo_cmd sh -c "sed 's/your-app-key:.*/your-app-key: $NAGIOS_APPKEY/' /usr/local/nagios/etc/objects/110monitor.cfg.example > /usr/local/nagios/etc/objects/110monitor.cfg"
 fi
 
-print "${green}Congratulations!${endColor}"
+echo -e "${green}Congratulations!${endColor}"
