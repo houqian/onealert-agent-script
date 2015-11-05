@@ -74,7 +74,7 @@ echo -e "Start to set configuration..."
 # Set the configuration
 if [ -e /usr/lib/zabbix/alertscripts/110monitor ]; then
     echo -e "\033[34m\n* Adding your license key to the Agent configuration: /usr/lib/zabbix/alertscripts/110monitor.cfg\n\033[0m\n"
-	$sudo_cmd cp /usr/lib/zabbix/alertscripts/110monitor.cfg /usr/lib/zabbix/alertscripts/110monitor.cfg.example
+	$sudo_cmd cp /usr/lib/zabbix/alertscripts/110monitor /usr/lib/zabbix/alertscripts/110monitor.example
 	$sudo_cmd sh -c "sed -i 's/appkey/$ZABBIX_APPKEY/g' /usr/lib/zabbix/alertscripts/alert-agent/sql/zabbix_config.sql"
 	echo -e "${green}Please enter a password zabbix mysql database users.\n We need write some config data to your zabbix tables. We do not storage your passwd.\n ${endColor}"
 	for var in 1 2 3
