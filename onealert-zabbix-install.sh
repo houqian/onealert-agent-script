@@ -63,7 +63,7 @@ if [ $OS = "RedHat" ]; then
 
     $sudo_cmd sh -c "echo -e '[onealert-agent]\nname=OneAlert, Inc.\nbaseurl=$YUM_URL/centos6/x86_64/\nenabled=1\ngpgcheck=0\npriority=1\n' > /etc/yum.repos.d/onealert-agent.repo"
 
-    echo -e " $SYSTEM_TIME - \033[34m* Installing the OneAlert Agent package\n\033[0m\n"
+    echo -e " \033[34m* Installing the OneAlert Agent package\n\033[0m\n"
 	
     $sudo_cmd yum -y --disablerepo='*' --enablerepo='onealert-agent' install onealert-zabbix-agent
 fi
