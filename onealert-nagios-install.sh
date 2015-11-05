@@ -21,11 +21,11 @@ KNOWN_DISTRIBUTION="(Debian|Ubuntu|RedHat|CentOS|Amazon)"
 DISTRIBUTION=$(lsb_release -d 2>/dev/null | grep -Eo $KNOWN_DISTRIBUTION  || grep -Eo $KNOWN_DISTRIBUTION /etc/issue 2>/dev/null || uname -s)
 if [ $DISTRIBUTION = "Darwin" ]; then
     echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the Mac..${endColor}\n"
-	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the Mac..${endColor}\n" >> $logfile
+	echo -e "${yellow} This script does not support installing on the Mac..${endColor}\n" >> $logfile
     exit 1;
 elif [ -f /etc/debian_version -o "$DISTRIBUTION" == "Debian" -o "$DISTRIBUTION" == "Ubuntu" ]; then
-	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the $DISTRIBUTION..${endColor}\n"
-	echo -e "${yellow} $SYSTEM_TIME - This script does not support installing on the $DISTRIBUTION..${endColor}\n" >> $logfile
+	echo -e "${yellow} This script does not support installing on the $DISTRIBUTION..${endColor}\n"
+	echo -e "${yellow} This script does not support installing on the $DISTRIBUTION..${endColor}\n" >> $logfile
     #OS="Debian"
 	exit 1;
 elif [ -f /etc/redhat-release -o "$DISTRIBUTION" == "RedHat" -o "$DISTRIBUTION" == "CentOS" -o "$DISTRIBUTION" == "Amazon" ]; then
@@ -67,7 +67,7 @@ if [ $OS = "RedHat" ]; then
 
     $sudo_cmd sh -c "echo -e '[onealert-agent]\nname=OneAlert, Inc.\nbaseurl=$YUM_URL/centos6/x86_64/\nenabled=1\ngpgcheck=0\npriority=1\n' > /etc/yum.repos.d/onealert-agent.repo"
 
-    echo -e " $SYSTEM_TIME - \033[34m* Installing the OneAlert Agent package\n\033[0m\n"
+    echo -e "\033[34m* Installing the OneAlert Agent package\n\033[0m\n"
 	
     $sudo_cmd yum -y --disablerepo='*' --enablerepo='onealert-agent' install onealert-agent
 fi
@@ -82,6 +82,7 @@ if [ -e /usr/local/nagios/etc/objects/110monitor.cfg ]; then
     $sudo_cmd sh -c "sed -i 's/your-app-key:.*/your-app-key: $NAGIOS_APPKEY/' /usr/local/nagios/etc/objects/110monitor.cfg.example > /usr/local/nagios/etc/objects/110monitor.cfg"
 fi
 
+<<<<<<< HEAD:onealert-nagios-install.sh
 # Reference 110monitor.cfg in the nagios.cfg
 110monitor_concat=`cat /usr/local/nagios/etc/nagios.cfg | grep cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg`
 if [! -n "$110monitor_concat" ]; then
@@ -89,3 +90,6 @@ if [! -n "$110monitor_concat" ]; then
 fi
 echo -e "End to set configuration..."
 print "${green}Congratulations!${endColor}"
+=======
+echo -e "${green}Congratulations!${endColor}"
+>>>>>>> 6c8a2a5abea9d9dead33a841af8b1d0ff10efac0:onealert.sh
