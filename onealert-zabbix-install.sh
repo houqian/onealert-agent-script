@@ -59,8 +59,6 @@ if [ $OS = "RedHat" ]; then
         #ARCHI="i386"
 		echo -e "Currently does not support 32-bit Linux."
 		exit 1
-    else
-        #ARCHI="x86_64"
     fi
 
     $sudo_cmd sh -c "echo -e '[onealert-agent]\nname=OneAlert, Inc.\nbaseurl=$YUM_URL/centos6/x86_64/\nenabled=1\ngpgcheck=0\npriority=1\n' > /etc/yum.repos.d/onealert-agent.repo"
