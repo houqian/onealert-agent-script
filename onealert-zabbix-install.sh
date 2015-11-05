@@ -52,7 +52,7 @@ fi
 
 # depending on the operating system version installed agent.
 if [ $OS = "RedHat" ]; then
-    echo -e "\033[34m\n* Installing YUM sources for OneAlert\n\033[0m"
+    echo -e " \033[34m\n* Installing YUM sources for OneAlert\n\033[0m"
 
     UNAME_M=$(uname -m)
     if [ "$UNAME_M"  == "i686" -o "$UNAME_M"  == "i386" -o "$UNAME_M"  == "x86" ]; then
