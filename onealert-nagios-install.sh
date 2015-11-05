@@ -45,6 +45,10 @@ fi
 #	exit 0
 #fi
 
+# detection the Nagios of installation
+check_yum_na='rpm -q nagios'
+
+
 # detect whether the current user is root.
 # Root user detection
 if [ $(echo "$UID") = "0" ]; then
@@ -75,7 +79,13 @@ echo -e "Start to set configuration..."
 if [ -e /usr/local/nagios/etc/objects/110monitor.cfg ]; then
     echo -e "\033[34m\n* Adding your license key to the Agent configuration: /usr/local/nagios/etc/objects/110monitor.cfg\n\033[0m\n"
 	$sudo_cmd cp /usr/local/nagios/etc/objects/110monitor.cfg /usr/local/nagios/etc/objects/110monitor.cfg.example
-    $sudo_cmd sh -c "sed 's/your-app-key:.*/your-app-key: $NAGIOS_APPKEY/' /usr/local/nagios/etc/objects/110monitor.cfg.example > /usr/local/nagios/etc/objects/110monitor.cfg"
+    $sudo_cmd sh -c "sed -i 's/your-app-key:.*/your-app-key: $NAGIOS_APPKEY/' /usr/local/nagios/etc/objects/110monitor.cfg.example > /usr/local/nagios/etc/objects/110monitor.cfg"
 fi
 
+# Reference 110monitor.cfg in the nagios.cfg
+110monitor_concat=`cat /usr/local/nagios/etc/nagios.cfg | grep cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg`
+if [! -n "$110monitor_concat" ]; then
+	$sudo_cmd sh -c "echo 'cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg' >> /usr/local/nagios/etc/nagios.cfg"
+fi
+echo -e "End to set configuration..."
 print "${green}Congratulations!${endColor}"
