@@ -37,14 +37,6 @@ elif [ -f /etc/system-release -o "$DISTRIBUTION" == "Amazon" ]; then
 	#OS="RedHat"
 	exit 1;
 fi
-
-# detecting alert agent is already intalled. 
-nagiosAgentPath="/usr/local/nagios/libexec/alert-agent"
-if [ ! -e "$nagiosAgentPath" -o (-f /etc/yum.repos.d/onealert-agent.repo)]; then  
-　　echo -e "${yellow} $SYSTEM_TIME - OneAlert agent maybe installed,Please uninstall first.\n You can run 'yum uninstall onealert-agent -y' to remove it.${endColor}"
-	echo -e "${yellow} $SYSTEM_TIME - OneAlert agent path already exist.Please uninstall it first.${endColor}" >> $logfile
-	exit 0
-fi
   
 # detect whether the current user is root.
 # Root user detection
