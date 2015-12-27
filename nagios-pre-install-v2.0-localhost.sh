@@ -62,8 +62,8 @@ $sudo_cmd chmod -R +x /usr/local/nagios/libexec/nagios
 if [ -e /usr/local/nagios/etc/objects/110monitor.cfg ]; then
     echo -e "\033[34m\n* Adding your license key to the Agent configuration: /usr/local/nagios/etc/objects/110monitor.cfg\n\033[0m\n"
     $sudo_cmd cp /usr/local/nagios/etc/objects/110monitor.cfg /usr/local/nagios/etc/objects/110monitor.cfg.example
-    $sudo_cmd sed -i "s%your_app_key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects/110monitor.cfg.example
-    $sudo_cmd sed -i "s%your_app_key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects/110monitor.cfg
+    $sudo_cmd sed -i "s%your-app-key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects/110monitor.cfg.example
+    $sudo_cmd sed -i "s%your-app-key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects/110monitor.cfg
     $sudo_cmd sed -i "s%your_app_key%$NAGIOS_APPKEY%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
     $sudo_cmd sed -i "s%alert_url%$MENU_CEP_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
     $sudo_cmd sed -i "s%hb_url%$HB_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
