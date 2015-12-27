@@ -70,10 +70,7 @@ if [ -e /usr/local/nagios/etc/objects/110monitor.cfg ]; then
 fi
 
 # Reference 110monitor.cfg in the nagios.cfg
-110monitor_concat=`cat "/usr/local/nagios/etc/nagios.cfg" | grep "cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg"`
-if [ -z "$110monitor_concat" ]; then
-    $sudo_cmd sh -c "echo 'cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg' >> /usr/local/nagios/etc/nagios.cfg"
-fi
+$sudo_cmd sh -c "echo 'cfg_file=/usr/local/nagios/etc/objects/110monitor.cfg' >> /usr/local/nagios/etc/nagios.cfg"
 echo -e "End to set configuration..."
 
 # Start heartbeat daemon
