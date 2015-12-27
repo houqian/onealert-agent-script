@@ -17,7 +17,7 @@ YUM_URL="http://192.168.1.13:80"
 INSTALL_PROCESS_URL="http://192.168.1.1:8080/alert/api/escalation/agentInstall/$NAGIOS_APPKEY"
 MENU_CEP_URL="http://192.168.1.1:8080/alert/api/event"
 HB_URL="http://192.168.1.1:8080/alert/api/heartbeat/"
-
+MENU_ALERT_URL="http://192.168.1.1:/8080/alert"
 # detect whether the current user is root.
 # Root user detection
 if [ $(echo "$UID") = "0" ]; then
@@ -65,6 +65,7 @@ $sudo_cmd chmod -R +x /usr/local/nagios/libexec/nagios
     $sudo_cmd sed -i "s%your-app-key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects/110monitor.cfg
     $sudo_cmd sed -i "s%your_app_key%$NAGIOS_APPKEY%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
     $sudo_cmd sed -i "s%alert_url%$MENU_CEP_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
+    $sudo_cmd echo "menu.alert.url=$MENU_ALERT_URL" > /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
     $sudo_cmd sed -i "s%hb_url%$HB_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
 
 # Reference 110monitor.cfg in the nagios.cfg
