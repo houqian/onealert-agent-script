@@ -75,6 +75,7 @@ echo -e "End to set configuration..."
 
 # Start heartbeat daemon
 $sudo_cmd chmod +x /usr/local/nagios/libexec/alert-agent/bin/heartbeat-daemon.sh
+$sudo_cmd cd /usr/local/nagios/libexec/alert-agent/bin
 $sudo_cmd sh /usr/local/nagios/libexec/alert-agent/bin/heartbeat-daemon.sh start
 #update status
 echo -e "\n"
