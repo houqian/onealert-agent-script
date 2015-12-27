@@ -44,7 +44,7 @@ if [ $OS = "RedHat" ]; then
     echo -e "\033[34m* Installing the OneAlert Agent package\n\033[0m\n"
     #update status
     curl -d "status=pedding" $INSTALL_PROCESS_URL
-    $sudo_cmd yum -y --disablerepo='*' --enablerepo='onealert-agent' install onealert-agent
+    $sudo_cmd yum -y --disablerepo='*' --enablerepo='onealert-agent' install onealert-nagios-agent
     #update status
     curl -d "status=installed" $INSTALL_PROCESS_URL
 fi
