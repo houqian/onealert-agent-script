@@ -22,7 +22,7 @@ YUM_URL="http://192.168.1.13:80"
 INSTALL_PROCESS_URL="http://192.168.1.1:8080/alert/api/escalation/agentInstall/$NAGIOS_APPKEY"
 MENU_CEP_URL="http://192.168.1.1:8080/alert/api/event"
 HB_URL="http://192.168.1.1:8080/alert/api/heartbeat/"
-MENU_ALERT_URL="http://192.168.1.1:/8080/alert"
+MENU_ALERT_URL="http://192.168.1.1:8080/alert"
 
 # detect whether the current user is root.
 # Root user detection
