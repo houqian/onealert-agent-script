@@ -10,8 +10,6 @@ set -e
 logfile="onealert-agent-install.log"
 #current system timestamp for log
 SYSTEM_TIME=`date '+%Y-%m-%d %T'`
-#onealert nagios appkey
-NAGIOS_APPKEY=97fc539f-16c4-40e3-c1d7-dd6f6c947ac2
 # color
 yellow='\e[0;33m'
 green='\e[0;32m' 
