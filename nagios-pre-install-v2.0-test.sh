@@ -76,7 +76,7 @@ $sudo_cmd sed -i "s%your-app-key%$NAGIOS_APPKEY%g" /usr/local/nagios/etc/objects
 #value for runtime.properties
 $sudo_cmd sed -i "s%your_app_key%$NAGIOS_APPKEY%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
 $sudo_cmd sed -i "s%alert_url%$MENU_CEP_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
-$sudo_cmd echo "menu.alert.url=$MENU_ALERT_URL" > /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
+$sudo_cmd echo "menu.alert.url=$MENU_ALERT_URL" >> /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
 $sudo_cmd sed -i "s%hb_url%$HB_URL%g" /usr/local/nagios/libexec/alert-agent/conf/runtime.properties
 #add 110monitor into nagios contacts.cfg
 $sudo_cmd sed -i 's%members                 nagiosadmin%&,110monitor%' /usr/local/nagios/etc/objects/contacts.cfg
